@@ -38,10 +38,10 @@ class TestCourierLogin:
         
         response = requests.post(f'{self.BASE_URL}/login', json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 200
         
-        # Проверка тела ответа
+        
         response_body = response.json()
         assert "id" in response_body
         assert isinstance(response_body["id"], int)
@@ -55,10 +55,10 @@ class TestCourierLogin:
         
         response = requests.post(f'{self.BASE_URL}/login', json=payload)
         
-        # ИСПРАВЛЕНИЕ: ожидаем 400 вместо 404
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для входа"
@@ -72,10 +72,10 @@ class TestCourierLogin:
         
         response = requests.post(f'{self.BASE_URL}/login', json=payload)
         
-        # ИСПРАВЛЕНИЕ: ожидаем 400 вместо 404
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для входа"
@@ -90,7 +90,7 @@ class TestCourierLogin:
         
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для входа"
@@ -105,7 +105,7 @@ class TestCourierLogin:
         
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для входа"

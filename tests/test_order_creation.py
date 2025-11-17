@@ -51,7 +51,7 @@ class TestOrderCreation:
     def test_create_order_without_color(self):
         """Создание заказа без указания цвета"""
         payload = self.create_valid_order_payload()
-        # Не добавляем поле color
+        
         
         response = requests.post(self.BASE_URL, json=payload)
         
@@ -66,10 +66,10 @@ class TestOrderCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверяем код ошибки (должен быть 400 согласно аналогичным endpoint)
+        
         assert response.status_code == 400
         
-        # Проверяем тело ответа с сообщением об ошибке
+        
         if response.text:  # Если API возвращает сообщение
             response_body = response.json()
             assert "message" in response_body

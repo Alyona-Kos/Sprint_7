@@ -22,15 +22,15 @@ class TestOrderList:
         """Получение списка заказов"""
         response = requests.get(self.BASE_URL)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 200
         
-        # Проверка тела ответа
+        
         response_body = response.json()
         assert "orders" in response_body
         assert isinstance(response_body["orders"], list)
         
-        # Проверка что список содержит заказы с правильной структурой
+        
         if len(response_body["orders"]) > 0:
             order = response_body["orders"][0]
             assert "id" in order
@@ -41,10 +41,10 @@ class TestOrderList:
         """Получение списка заказов с лимитом"""
         response = requests.get(self.BASE_URL, params={"limit": 5})
         
-        # Проверка кода ответа
+        
         assert response.status_code == 200
         
-        # Проверка тела ответа
+        
         response_body = response.json()
         orders = response_body["orders"]
         assert len(orders) <= 5

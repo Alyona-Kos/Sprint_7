@@ -33,14 +33,14 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 201
         
-        # Проверка тела ответа
+        
         response_body = response.json()
         assert response_body == {"ok": True}
         
-        # Очистка тестовых данных
+        
         courier_id = self.login_courier(payload["login"], payload["password"])
         self.delete_courier(courier_id)
 
@@ -48,22 +48,22 @@ class TestCourierCreation:
         """Нельзя создать двух одинаковых курьеров"""
         payload = self.create_courier_payload()
         
-        # Создаем первого курьера
+        
         response1 = requests.post(self.BASE_URL, json=payload)
         assert response1.status_code == 201
         
-        # Пытаемся создать дубликат
+        
         response2 = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response2.status_code == 409
         
-        # Проверка тела ответа
+        
         response_body = response2.json()
         assert "message" in response_body
         assert "уже используется" in response_body["message"]
         
-        # Очистка тестовых данных
+        
         courier_id = self.login_courier(payload["login"], payload["password"])
         self.delete_courier(courier_id)
 
@@ -74,10 +74,10 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для создания учетной записи"
@@ -89,10 +89,10 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для создания учетной записи"
@@ -104,10 +104,10 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для создания учетной записи"
@@ -118,10 +118,10 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для создания учетной записи"
@@ -132,10 +132,10 @@ class TestCourierCreation:
         
         response = requests.post(self.BASE_URL, json=payload)
         
-        # Проверка кода ответа
+        
         assert response.status_code == 400
         
-        # Проверка тела ответа с текстом ошибки
+        
         response_body = response.json()
         assert "message" in response_body
         assert response_body["message"] == "Недостаточно данных для создания учетной записи"
