@@ -1,0 +1,6 @@
+echo ".pytest_cache/" > .gitignore
+echo "allure-report/" >> .gitignore
+echo "allure-results/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo ".env" >> .gitignore
