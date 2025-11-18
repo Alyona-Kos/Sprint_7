@@ -1,6 +1,27 @@
-echo ".pytest_cache/" > .gitignore
-echo "allure-report/" >> .gitignore
-echo "allure-results/" >> .gitignore
-echo "__pycache__/" >> .gitignore
-echo "*.pyc" >> .gitignore
-echo ".env" >> .gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+.env
+.venv
+venv/
+
+# Allure (генерируются автоматически)
+allure-report/
+allure-results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
